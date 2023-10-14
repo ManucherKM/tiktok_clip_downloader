@@ -1,11 +1,16 @@
 import { downloadVideo } from '../modules/downloadVideo'
 import path from 'path'
 import fs from 'fs'
+import { createPath } from '../utils/createPath'
 
 export async function multipleLoad() {
 	const pathToTxtFile = path.join(__dirname, '..', '..', 'videos.txt')
 
 	const urls = fs.readFileSync(pathToTxtFile, 'utf-8').split('\r\n')
+
+	const pathToFolder = 'downloads'
+
+	createPath(pathToFolder)
 
 	for (const url of urls) {
 		const pathToVideoSave = path.join(
