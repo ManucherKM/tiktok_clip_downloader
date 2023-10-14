@@ -2,6 +2,7 @@ import { singleLoad } from './scenarios/singleLoad'
 import { clearTerminal } from './utils/clearTerminal'
 import { multipleLoad } from './scenarios/multipleLoad'
 import { specificUser } from './scenarios/specificUser'
+
 const { Select, Input } = require('enquirer')
 
 const start = async () => {
@@ -47,8 +48,8 @@ const start = async () => {
 		} else if (question1Answer === 'Specific user') {
 			// await specificUser()
 		}
-	} catch (e) {
-		console.error(e)
+	} catch (e: any) {
+		console.error(e.message)
 	}
 }
 

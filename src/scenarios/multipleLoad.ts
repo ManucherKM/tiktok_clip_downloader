@@ -8,6 +8,12 @@ export async function multipleLoad() {
 
 	const urls = fs.readFileSync(pathToTxtFile, 'utf-8').split('\r\n')
 
+	if (urls.length === 1 && urls[0].length === 0) {
+		throw new Error(
+			'Could not find the URL to download the video. Check the videos.txt file.',
+		)
+	}
+
 	const pathToFolder = 'downloads'
 
 	createPath(pathToFolder)
